@@ -1,0 +1,67 @@
+
+{% load widget_tweaks %}
+<form action="" method="post">{% csrf_token %}
+
+<div class="modal-header">
+    <h5 class="modal-title">Create new Book</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+ <div class="col-md-12">
+      <label for="{{ form.Nombre.id_for_label }}">{{ form.Nombre.label }}</label>
+            {% render_field form.Nombre class="form-control form-control-sm" placeholder=form.Nombre.label %}
+        
+        <label for="{{ form.NumParticipante.id_for_label }}">{{ form.NumParticipante.label }}</label>
+            {% render_field form.NumParticipante class="form-control form-control-sm" placeholder=form.NumParticipante.label %}
+      
+        <label for="{{ form.FechaNacimiento.id_for_label }}">{{ form.FechaNacimiento.label }}</label>
+            {% render_field form.FechaNacimiento class="form-control form-control-sm" placeholder=form.FechaNacimiento.label %}
+        
+        <label for="{{ form.Edad.id_for_label }}">{{ form.Edad.label }}</label>
+            {% render_field form.Edad class="form-control form-control-sm" placeholder=form.Edad.label %}
+
+            <label for="{{ form.generoModel.id_for_label }}">{{ form.generoModel.label }}</label>
+            {% render_field form.generoModel class="form-control form-control-sm" placeholder=form.generoModel.label %}
+
+        <label for="{{ form.Peso.id_for_label }}">{{ form.Peso.label }}</label>
+            {% render_field form.Peso class="form-control form-control-sm" placeholder=form.Peso.label %}
+                
+        <label for="{{ form.dojoModel.id_for_label }}">{{ form.dojoModel.label }}</label>
+            {% render_field form.dojoModel class="form-control form-control-sm" placeholder=form.dojoModel.label %}
+
+        <label for="{{ form.nivelKata.id_for_label }}">{{ form.nivelKata.label }}</label>
+            {% render_field form.nivelKata class="form-control form-control-sm" placeholder=form.nivelKata.label %}
+
+        <label for="{{ form.nivelKumite.id_for_label }}">{{ form.nivelKumite.label }}</label>
+            {% render_field form.nivelKumite class="form-control form-control-sm" placeholder=form.nivelKumite.label %}
+
+        <label for="{{ form.clasificacionkata.id_for_label }}">{{ form.clasificacionkata.label }}</label>
+            {% render_field form.clasificacionkata class="form-control form-control-sm" placeholder=form.clasificacionkata.label %}
+                
+        <label for="{{ form.clasificacionkumite.id_for_label }}">{{ form.clasificacionkata.label }}</label>
+            {% render_field form.clasificacionkumite class="form-control form-control-sm" placeholder=form.clasificacionkumite.label %}   
+  </div>
+{% comment %}     {% for field in form %}
+      <div class="form-group{% if field.errors %} invalid{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {%  field class="form-control" placeholder=field.label %}
+        {% for error in field.errors %}
+          <p class="help-block">{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+ </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+
+
+</form>
+
