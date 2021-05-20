@@ -5,7 +5,7 @@
 <br>
               <div class="card">   
                 <div class="card-body">
-                  <button id="create-dojo" class="btn btn-primary" type="button" name="button">Registrar  Dojo</button>
+                  <button id="create-participante" class="btn btn-primary" type="button" name="button">Registrar Participante</button>
                   <hr>
                   
                   <div class="table-responsive"></div>
@@ -30,7 +30,7 @@
                                   <span class="fa fa-pencil"></span>
                                   </button>
                                   <button type="button" style="padding: 0rem 0.2rem" class="delete-book bs-modal btn btn-danger" data-form-url="{% url 'dojo:update' form_m.pk %}">
-<span class="fa fa-trash"></span></button>
+                                  <span class="fa fa-trash"></span></button>
                                 </td>                                     
                             </tr>
                           {% endfor %}
@@ -56,8 +56,8 @@
     });
 
 $(document).ready(function() {
-    $("#create-dojo").modalForm({
-        formURL: "{% url 'dojo:create' %}"
+    $("#create-participante").modalForm({
+        formURL: "{% url 'participante:create' %}"
     });
       $(".update-dojo").each(function () {
         $(this).modalForm({formURL: $(this).data("form-url")});

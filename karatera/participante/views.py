@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse, reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView, BSModalUpdateView
 from .forms import ParticipanteModelForm
+from administrador.models import GeneroModel
 
 # Create your views here.
 class Participante_List(ListView):
@@ -16,6 +17,16 @@ class Participante_Create(BSModalCreateView):
     form_class = ParticipanteModelForm
     success_message = 'Success: Sign up succeeded. You can now Log in.'
     success_url = reverse_lazy('participante:list')
+    def get_initial(self):
+        initial = super(Participante_Create, self).get_initial()
+        try:
+            generoModel = self.get_object().GeneroModel
+        except:
+            pass
+        else:
+            initial['field1'] = GeneroModel.pk          
+        return initial
+   
 
 class Participante_Update(BSModalUpdateView):
     model = ParticipanteModel

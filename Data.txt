@@ -1,0 +1,15 @@
+python manage.py shell
+exit()
+
+from administrador.models import GeneroModel
+g = GeneroModel(Descripcion='Masculino')
+g2 = GeneroModel(Descripcion='Femenino')
+g.save()
+g2.save()
+
+from administrador.models import DisciplinaModel
+g = DisciplinaModel(Descripcion='Kata')
+g2 = DisciplinaModel(Descripcion='Kumite')
+g.save()
+g2.save()
+

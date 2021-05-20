@@ -28,8 +28,8 @@
                                <button type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary" data-form-url="{% url 'dojo:update' form_m.pk %}">
                                   <span class="fa fa-pencil"></span>
                                   </button>
-                                  <button type="button" style="padding: 0rem 0.2rem" class="delete-book bs-modal btn btn-danger" data-form-url="{% url 'dojo:update' form_m.pk %}">
-<span class="fa fa-trash"></span></button>
+                                  <a type="button" style="padding: 0rem 0.2rem" class=" btn btn-danger" href="{% url 'dojo:view' form_m.pk %}">
+<span class="fa fa-trash"></span></a>
                                 </td>                                     
                             </tr>
                           {% endfor %}
@@ -62,5 +62,8 @@ $(document).ready(function() {
         $(this).modalForm({formURL: $(this).data("form-url")});
     });
 });
+
+
+
 </script>
 {% endblock %}
