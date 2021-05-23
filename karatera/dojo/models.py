@@ -9,7 +9,9 @@ class DojoModel(models.Model):
     NombreSensei= models.CharField(max_length=50, verbose_name="Sensei")
     Tel= models.IntegerField(verbose_name="Tel.")
     create = models.DateTimeField(auto_now_add=True, verbose_name="Creación")
-    update = models.DateTimeField(auto_now=True, verbose_name="Actualización")        
+    update = models.DateTimeField(auto_now=True, verbose_name="Actualización")
+    def __str__(self):
+        return self.NombreDojo  
 
 class EquipoModel(models.Model):
     Descripcion = models.CharField(max_length=50,verbose_name="Nombre del equipo")

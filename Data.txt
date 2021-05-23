@@ -21,22 +21,22 @@ g.save()
 g2.save()
 g3.save()
 
-form  administrator.models import Cinta_NivelModel
+from administrador.models import Cinta_NivelModel
 ## Nivel principiante
-g = Cinta_NivelModel(Descripcion='Blanca',NivelModel=1)
-g2 = Cinta_NivelModel(Descripcion='Amarilla',NivelModel=1)
-g3 = Cinta_NivelModel(Descripcion='Naranja',NivelModel=1)
-g4 = Cinta_NivelModel(Descripcion='Azul',NivelModel=1)
+g = Cinta_NivelModel(Descripcion='Blanca',nivelModel=NivelModel.objects.get(pk=1))
+g2 = Cinta_NivelModel(Descripcion='Amarilla',nivelModel=NivelModel.objects.get(pk=1))
+g3 = Cinta_NivelModel(Descripcion='Naranja',nivelModel=NivelModel.objects.get(pk=1))
+g4 = Cinta_NivelModel(Descripcion='Azul',nivelModel=NivelModel.objects.get(pk=1))
 
 ## Nivel Intermedio
-g5 = Cinta_NivelModel(Descripcion='Morada',NivelModel=2)
-g6 = Cinta_NivelModel(Descripcion='Verde',NivelModel=2)
+g5 = Cinta_NivelModel(Descripcion='Morada',nivelModel=NivelModel.objects.get(pk=2))
+g6 = Cinta_NivelModel(Descripcion='Verde',nivelModel=NivelModel.objects.get(pk=2))
 
 ## Nivel Avanzado
-g7 = Cinta_NivelModel(Descripcion='Roja',NivelModel=3)
-g8 = Cinta_NivelModel(Descripcion='Cafe',NivelModel=3)
-g9 = Cinta_NivelModel(Descripcion='Negra/Blanco',NivelModel=3)
-g10 = Cinta_NivelModel(Descripcion='Negra',NivelModel=3)
+g7 = Cinta_NivelModel(Descripcion='Roja',nivelModel=NivelModel.objects.get(pk=3))
+g8 = Cinta_NivelModel(Descripcion='Cafe',nivelModel=NivelModel.objects.get(pk=3))
+g9 = Cinta_NivelModel(Descripcion='Negra/Blanco',nivelModel=NivelModel.objects.get(pk=3))
+g10 = Cinta_NivelModel(Descripcion='Negra',nivelModel=NivelModel.objects.get(pk=3))
 
 g.save()
 g2.save()
@@ -50,7 +50,7 @@ g9.save()
 g10.save()
 
 
-from administrator.models import EdadModel
+from administrador.models import EdadModel
 g = EdadModel(Minimo=3, Maximo=5)
 g2 = EdadModel(Minimo=6, Maximo=7)
 g3 = EdadModel(Minimo=8, Maximo=9)
@@ -59,7 +59,7 @@ g5 = EdadModel(Minimo=12, Maximo=13)
 g6 = EdadModel(Minimo=14, Maximo=15)
 g7 = EdadModel(Minimo=16, Maximo=17)
 g8 = EdadModel(Minimo=18, Maximo=39)
-g90 = EdadModel(Minimo=40, Maximo=90)
+g9 = EdadModel(Minimo=40, Maximo=90)
 
 g.save()
 g2.save()
@@ -72,132 +72,131 @@ g8.save()
 g9.save()
 
 
-from administrator.models import ClasificacionKarateModel
-
+from administrador.models import ClasificacionKarateModel
 ##Niños menos de cinco o cinco
-g = ClasificacionKarateModel(Descripcion='K1',NivelModel=1,GeneroModel=1,EdadModel=1,DisciplinaModel=1)   
-g2 = ClasificacionKarateModel(Descripcion='S48',NivelModel=1,GeneroModel=1,EdadModel=1,DisciplinaModel=2)
+g = ClasificacionKarateModel(Descripcion='K1',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),edadModel=EdadModel.objects.get(pk=1),disciplinaModel=DisciplinaModel.objects.get(pk=1))
+g2 = ClasificacionKarateModel(Descripcion='S48',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),edadModel=EdadModel.objects.get(pk=1),DisciplinaModel=2)
 
 ##Niños 6'7
-g3 = ClasificacionKarateModel(Descripcion= 'K2',NivelModel=1,GeneroModel=1,EdadModel=2,DisciplinaModel=1)
-g4 = ClasificacionKarateModel(Descripcion= 'S49',NivelModel=1,GeneroModel=1,EdadModel=2,DisciplinaModel=2)
-g5 = ClasificacionKarateModel(Descripcion= 'K3',NivelModel=2,GeneroModel=1,EdadModel=2,DisciplinaModel=1)
-g6 = ClasificacionKarateModel(Descripcion= 'S50',NivelModel=2,GeneroModel=1,EdadModel=2,DisciplinaModel=2)
+g3 = ClasificacionKarateModel(Descripcion= 'K2',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=2,DisciplinaModel=1)
+g4 = ClasificacionKarateModel(Descripcion= 'S49',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=2,DisciplinaModel=2)
+g5 = ClasificacionKarateModel(Descripcion= 'K3',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=2,DisciplinaModel=1)
+g6 = ClasificacionKarateModel(Descripcion= 'S50',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=2,DisciplinaModel=2)
 
 ##Niñas 6'7
-g7 = ClasificacionKarateModel(Descripcion= 'K4',NivelModel=1,GeneroModel=2,EdadModel=2,DisciplinaModel=1)  
-g8 = ClasificacionKarateModel(Descripcion= 'S51',NivelModel=1,GeneroModel=2,EdadModel=2,DisciplinaModel=2)
-g9 = ClasificacionKarateModel(Descripcion= 'K5',NivelModel=2,GeneroModel=2,EdadModel=2,DisciplinaModel=1)   
-g10 = ClasificacionKarateModel(Descripcion= 'S52',NivelModel=2,GeneroModel=2,EdadModel=2,DisciplinaModel=2)
+g7 = ClasificacionKarateModel(Descripcion= 'K4',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=2,DisciplinaModel=1)  
+g8 = ClasificacionKarateModel(Descripcion= 'S51',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=2,DisciplinaModel=2)
+g9 = ClasificacionKarateModel(Descripcion= 'K5',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=2,DisciplinaModel=1)   
+g10 = ClasificacionKarateModel(Descripcion= 'S52',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=2,DisciplinaModel=2)
 
 ##Edad 8-9 niños 
-g11 = ClasificacionKarateModel(Descripcion= 'K6',NivelModel=1,GeneroModel=1,EdadModel=3,DisciplinaModel=1)   
-g12 = ClasificacionKarateModel(Descripcion= 'S53',NivelModel=1,GeneroModel=1,EdadModel=3,DisciplinaModel=2)
-g13 = ClasificacionKarateModel(Descripcion= 'K7',NivelModel=2,GeneroModel=1,EdadModel=3,DisciplinaModel=1)   
-g14 = ClasificacionKarateModel(Descripcion= 'S54',NivelModel=2,GeneroModel=1,EdadModel=3,DisciplinaModel=2)
-g15 = ClasificacionKarateModel(Descripcion= 'K8',NivelModel=3,GeneroModel=1,EdadModel=3,DisciplinaModel=1)   
-g16 = ClasificacionKarateModel(Descripcion= 'S55',NivelModel=3,GeneroModel=1,EdadModel=3,DisciplinaModel=2)
+g11 = ClasificacionKarateModel(Descripcion= 'K6',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=1)   
+g12 = ClasificacionKarateModel(Descripcion= 'S53',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=2)
+g13 = ClasificacionKarateModel(Descripcion= 'K7',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=1)   
+g14 = ClasificacionKarateModel(Descripcion= 'S54',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=2)
+g15 = ClasificacionKarateModel(Descripcion= 'K8',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=1)   
+g16 = ClasificacionKarateModel(Descripcion= 'S55',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=3,DisciplinaModel=2)
 
 ##Edad 8'9 niñas 
-g17 = ClasificacionKarateModel(Descripcion= 'K9',NivelModel=1,GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
-g18 = ClasificacionKarateModel(Descripcion= 'S56',NivelModel=1,GeneroModel=2,EdadModel=3,DisciplinaModel=2)
-g19 = ClasificacionKarateModel(Descripcion= 'K10',NivelModel=2,GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
-g20 = ClasificacionKarateModel(Descripcion= 'S57',NivelModel=2,GeneroModel=2,EdadModel=3,DisciplinaModel=2)
-g21 = ClasificacionKarateModel(Descripcion= 'K11',NivelModel=3,GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
-g22 = ClasificacionKarateModel(Descripcion= 'S58',NivelModel=3,GeneroModel=2,EdadModel=3,DisciplinaModel=2)
+g17 = ClasificacionKarateModel(Descripcion= 'K9',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
+g18 = ClasificacionKarateModel(Descripcion= 'S56',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=3,DisciplinaModel=2)
+g19 = ClasificacionKarateModel(Descripcion= 'K10',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
+g20 = ClasificacionKarateModel(Descripcion= 'S57',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=3,DisciplinaModel=2)
+g21 = ClasificacionKarateModel(Descripcion= 'K11',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=3,DisciplinaModel=1)  
+g22 = ClasificacionKarateModel(Descripcion= 'S58',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=3,DisciplinaModel=2)
 
 ##Edad 10'11  niños 
-g23 = ClasificacionKarateModel(Descripcion= 'K12',NivelModel=1,GeneroModel=1,EdadModel=4,DisciplinaModel=1)  
-g24 = ClasificacionKarateModel(Descripcion= 'S59',NivelModel=1,GeneroModel=1,EdadModel=4,DisciplinaModel=2)
-g25 = ClasificacionKarateModel(Descripcion= 'K13',NivelModel=2,GeneroModel=1,EdadModel=4,DisciplinaModel=1) 
-g26 = ClasificacionKarateModel(Descripcion= 'S60',NivelModel=2,GeneroModel=1,EdadModel=4,DisciplinaModel=2)
-g27 = ClasificacionKarateModel(Descripcion= 'K14',NivelModel=3,GeneroModel=1,EdadModel=4,DisciplinaModel=1)   
-g28 = ClasificacionKarateModel(Descripcion= 'S61',NivelModel=3,GeneroModel=1,EdadModel=4,DisciplinaModel=2)
+g23 = ClasificacionKarateModel(Descripcion= 'K12',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=1)  
+g24 = ClasificacionKarateModel(Descripcion= 'S59',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=2)
+g25 = ClasificacionKarateModel(Descripcion= 'K13',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=1) 
+g26 = ClasificacionKarateModel(Descripcion= 'S60',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=2)
+g27 = ClasificacionKarateModel(Descripcion= 'K14',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=1)   
+g28 = ClasificacionKarateModel(Descripcion= 'S61',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=4,DisciplinaModel=2)
 
 ##Edad 10'11  niñas 
-g29 = ClasificacionKarateModel(Descripcion= 'K15',NivelModel=1,GeneroModel=2,EdadModel=4,DisciplinaModel=1)
-g30 = ClasificacionKarateModel(Descripcion= 'S62',NivelModel=1,GeneroModel=2,EdadModel=4,DisciplinaModel=2)
-g31 = ClasificacionKarateModel(Descripcion= 'K16',NivelModel=2,GeneroModel=2,EdadModel=4,DisciplinaModel=1)  
-g32 = ClasificacionKarateModel(Descripcion= 'S63',NivelModel=2,GeneroModel=2,EdadModel=4,DisciplinaModel=2)
-g33 = ClasificacionKarateModel(Descripcion= 'K17',NivelModel=3,GeneroModel=2,EdadModel=4,DisciplinaModel=1)  
-g34 = ClasificacionKarateModel(Descripcion= 'S64',NivelModel=3,GeneroModel=2,EdadModel=4,DisciplinaModel=2)
+g29 = ClasificacionKarateModel(Descripcion= 'K15',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=4,DisciplinaModel=1)
+g30 = ClasificacionKarateModel(Descripcion= 'S62',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=4,DisciplinaModel=2)
+g31 = ClasificacionKarateModel(Descripcion= 'K16',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=4,DisciplinaModel=1)  
+g32 = ClasificacionKarateModel(Descripcion= 'S63',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=4,DisciplinaModel=2)
+g33 = ClasificacionKarateModel(Descripcion= 'K17',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=4,DisciplinaModel=1)  
+g34 = ClasificacionKarateModel(Descripcion= 'S64',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=4,DisciplinaModel=2)
 
 ##Edad 12'13  niños 
-g35 = ClasificacionKarateModel(Descripcion= 'K18',NivelModel=1,GeneroModel=1,EdadModel=5,DisciplinaModel=1)  
-g36 = ClasificacionKarateModel(Descripcion= 'S65',NivelModel=1,GeneroModel=1,EdadModel=5,DisciplinaModel=2)
-g37 = ClasificacionKarateModel(Descripcion= 'K19',NivelModel=2,GeneroModel=1,EdadModel=5,DisciplinaModel=1)  
-g38 = ClasificacionKarateModel(Descripcion= 'S66',NivelModel=2,GeneroModel=1,EdadModel=5,DisciplinaModel=2)
-g39 = ClasificacionKarateModel(Descripcion= 'K20',NivelModel=3,GeneroModel=1,EdadModel=5,DisciplinaModel=1)  
-g40 = ClasificacionKarateModel(Descripcion= 'S67',NivelModel=3,GeneroModel=1,EdadModel=5,DisciplinaModel=2)
+g35 = ClasificacionKarateModel(Descripcion= 'K18',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=1)  
+g36 = ClasificacionKarateModel(Descripcion= 'S65',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=2)
+g37 = ClasificacionKarateModel(Descripcion= 'K19',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=1)  
+g38 = ClasificacionKarateModel(Descripcion= 'S66',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=2)
+g39 = ClasificacionKarateModel(Descripcion= 'K20',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=1)  
+g40 = ClasificacionKarateModel(Descripcion= 'S67',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=5,DisciplinaModel=2)
 
 ##Edad 10'11  niñas
-g41 = ClasificacionKarateModel(Descripcion= 'K21',NivelModel=1,GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
-g42 = ClasificacionKarateModel(Descripcion= 'S68',NivelModel=1,GeneroModel=2,EdadModel=5,DisciplinaModel=2)
-g43 = ClasificacionKarateModel(Descripcion= 'K22',NivelModel=2,GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
-g44 = ClasificacionKarateModel(Descripcion= 'S69',NivelModel=2,GeneroModel=2,EdadModel=5,DisciplinaModel=2)
-g45 = ClasificacionKarateModel(Descripcion= 'K23',NivelModel=3,GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
-g46 = ClasificacionKarateModel(Descripcion= 'S70',NivelModel=3,GeneroModel=2,EdadModel=5,DisciplinaModel=2)
+g41 = ClasificacionKarateModel(Descripcion= 'K21',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
+g42 = ClasificacionKarateModel(Descripcion= 'S68',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=5,DisciplinaModel=2)
+g43 = ClasificacionKarateModel(Descripcion= 'K22',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
+g44 = ClasificacionKarateModel(Descripcion= 'S69',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=5,DisciplinaModel=2)
+g45 = ClasificacionKarateModel(Descripcion= 'K23',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=5,DisciplinaModel=1)  
+g46 = ClasificacionKarateModel(Descripcion= 'S70',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=5,DisciplinaModel=2)
 
 ##Edad 14,15  niños 
-g47 = ClasificacionKarateModel(Descripcion= 'K24',NivelModel=1,GeneroModel=1,EdadModel=6,DisciplinaModel=1)  
-g48 = ClasificacionKarateModel(Descripcion= 'S71',NivelModel=1,GeneroModel=1,EdadModel=6,DisciplinaModel=2)
-g49 = ClasificacionKarateModel(Descripcion= 'K25',NivelModel=2,GeneroModel=1,EdadModel=6,DisciplinaModel=1) 
-g50 = ClasificacionKarateModel(Descripcion= 'S72',NivelModel=2,GeneroModel=1,EdadModel=6,DisciplinaModel=2)
-g51 = ClasificacionKarateModel(Descripcion= 'K26',NivelModel=3,GeneroModel=1,EdadModel=6,DisciplinaModel=1)  
-g52 = ClasificacionKarateModel(Descripcion= 'S73',NivelModel=3,GeneroModel=1,EdadModel=6,DisciplinaModel=2)
+g47 = ClasificacionKarateModel(Descripcion= 'K24',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=1)  
+g48 = ClasificacionKarateModel(Descripcion= 'S71',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=2)
+g49 = ClasificacionKarateModel(Descripcion= 'K25',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=1) 
+g50 = ClasificacionKarateModel(Descripcion= 'S72',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=2)
+g51 = ClasificacionKarateModel(Descripcion= 'K26',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=1)  
+g52 = ClasificacionKarateModel(Descripcion= 'S73',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=6,DisciplinaModel=2)
 
 ##Edad 14'15 niñas 
-g53 = ClasificacionKarateModel(Descripcion= 'K27',NivelModel=1,GeneroModel=2,EdadModel=6,DisciplinaModel=1) 
-g54 = ClasificacionKarateModel(Descripcion= 'S74',NivelModel=1,GeneroModel=2,EdadModel=6,DisciplinaModel=2)
-g55 = ClasificacionKarateModel(Descripcion= 'K28',NivelModel=2,GeneroModel=2,EdadModel=6,DisciplinaModel=1)  
-g56 = ClasificacionKarateModel(Descripcion= 'S75',NivelModel=2,GeneroModel=2,EdadModel=6,DisciplinaModel=2)
-g57 = ClasificacionKarateModel(Descripcion= 'K29',NivelModel=3,GeneroModel=2,EdadModel=6,DisciplinaModel=1)  
-g58 = ClasificacionKarateModel(Descripcion= 'S76',NivelModel=3,GeneroModel=2,EdadModel=6,DisciplinaModel=2)
+g53 = ClasificacionKarateModel(Descripcion= 'K27',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=6,DisciplinaModel=1) 
+g54 = ClasificacionKarateModel(Descripcion= 'S74',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=6,DisciplinaModel=2)
+g55 = ClasificacionKarateModel(Descripcion= 'K28',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=6,DisciplinaModel=1)  
+g56 = ClasificacionKarateModel(Descripcion= 'S75',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=6,DisciplinaModel=2)
+g57 = ClasificacionKarateModel(Descripcion= 'K29',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=6,DisciplinaModel=1)  
+g58 = ClasificacionKarateModel(Descripcion= 'S76',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=6,DisciplinaModel=2)
 
 ##Edad 16'17  niños 
-g59 = ClasificacionKarateModel(Descripcion= 'K30',NivelModel=1,GeneroModel=1,EdadModel=7,DisciplinaModel=1)  
-g60 = ClasificacionKarateModel(Descripcion= 'S77',NivelModel=1,GeneroModel=1,EdadModel=7,DisciplinaModel=2)
-g61 = ClasificacionKarateModel(Descripcion= 'K31',NivelModel=2,GeneroModel=1,EdadModel=7,DisciplinaModel=1)  
-g62 = ClasificacionKarateModel(Descripcion= 'S78',NivelModel=2,GeneroModel=1,EdadModel=7,DisciplinaModel=2)
-g63 = ClasificacionKarateModel(Descripcion= 'K32',NivelModel=3,GeneroModel=1,EdadModel=7,DisciplinaModel=1)  
-g64 = ClasificacionKarateModel(Descripcion= 'S79',NivelModel=3,GeneroModel=1,EdadModel=7,DisciplinaModel=2)
+g59 = ClasificacionKarateModel(Descripcion= 'K30',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=1)  
+g60 = ClasificacionKarateModel(Descripcion= 'S77',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=2)
+g61 = ClasificacionKarateModel(Descripcion= 'K31',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=1)  
+g62 = ClasificacionKarateModel(Descripcion= 'S78',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=2)
+g63 = ClasificacionKarateModel(Descripcion= 'K32',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=1)  
+g64 = ClasificacionKarateModel(Descripcion= 'S79',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=7,DisciplinaModel=2)
 
 ##Edad 16'17  niñas
-g65 = ClasificacionKarateModel(Descripcion= 'K33',NivelModel=1,GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
-g66 = ClasificacionKarateModel(Descripcion= 'S80',NivelModel=1,GeneroModel=2,EdadModel=7,DisciplinaModel=2)
-g67 = ClasificacionKarateModel(Descripcion= 'K34',NivelModel=2,GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
-g68 = ClasificacionKarateModel(Descripcion= 'S81',NivelModel=2,GeneroModel=2,EdadModel=7,DisciplinaModel=2)
-g69 = ClasificacionKarateModel(Descripcion= 'K35',NivelModel=3,GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
-g70 = ClasificacionKarateModel(Descripcion= 'S82',NivelModel=3,GeneroModel=2,EdadModel=7,DisciplinaModel=2)
+g65 = ClasificacionKarateModel(Descripcion= 'K33',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
+g66 = ClasificacionKarateModel(Descripcion= 'S80',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=7,DisciplinaModel=2)
+g67 = ClasificacionKarateModel(Descripcion= 'K34',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
+g68 = ClasificacionKarateModel(Descripcion= 'S81',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=7,DisciplinaModel=2)
+g69 = ClasificacionKarateModel(Descripcion= 'K35',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=7,DisciplinaModel=1)  
+g70 = ClasificacionKarateModel(Descripcion= 'S82',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=7,DisciplinaModel=2)
 
 ##Edad 18'39  hombres
-g71 = ClasificacionKarateModel(Descripcion= 'K36',NivelModel=1,GeneroModel=1,EdadModel=8,DisciplinaModel=1)  
-g72 = ClasificacionKarateModel(Descripcion= 'S83',NivelModel=1,GeneroModel=1,EdadModel=8,DisciplinaModel=2)
-g73 = ClasificacionKarateModel(Descripcion= 'K37',NivelModel=2,GeneroModel=1,EdadModel=8,DisciplinaModel=1)  
-g74 = ClasificacionKarateModel(Descripcion= 'S84',NivelModel=2,GeneroModel=1,EdadModel=8,DisciplinaModel=2)
-g75 = ClasificacionKarateModel(Descripcion= 'K38',NivelModel=3,GeneroModel=1,EdadModel=8,DisciplinaModel=1) 
-g76 = ClasificacionKarateModel(Descripcion= 'S85',NivelModel=3,GeneroModel=1,EdadModel=8,DisciplinaModel=2)
+g71 = ClasificacionKarateModel(Descripcion= 'K36',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=1)  
+g72 = ClasificacionKarateModel(Descripcion= 'S83',nivelModel=NivelModel.objects.get(pk=1),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=2)
+g73 = ClasificacionKarateModel(Descripcion= 'K37',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=1)  
+g74 = ClasificacionKarateModel(Descripcion= 'S84',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=2)
+g75 = ClasificacionKarateModel(Descripcion= 'K38',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=1) 
+g76 = ClasificacionKarateModel(Descripcion= 'S85',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=8,DisciplinaModel=2)
 
 ##Edad 18'39  mujeres
-g77 = ClasificacionKarateModel(Descripcion= 'K39',NivelModel=1,GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
-g78 = ClasificacionKarateModel(Descripcion= 'S86',NivelModel=1,GeneroModel=2,EdadModel=8,DisciplinaModel=2)
-g79 = ClasificacionKarateModel(Descripcion= 'K40',NivelModel=2,GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
-g80 = ClasificacionKarateModel(Descripcion= 'S87',NivelModel=2,GeneroModel=2,EdadModel=8,DisciplinaModel=2)
-g81 = ClasificacionKarateModel(Descripcion= 'K41',NivelModel=3,GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
-g82 = ClasificacionKarateModel(Descripcion= 'S88',NivelModel=3,GeneroModel=2,EdadModel=8,DisciplinaModel=2)
+g77 = ClasificacionKarateModel(Descripcion= 'K39',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
+g78 = ClasificacionKarateModel(Descripcion= 'S86',nivelModel=NivelModel.objects.get(pk=1),GeneroModel=2,EdadModel=8,DisciplinaModel=2)
+g79 = ClasificacionKarateModel(Descripcion= 'K40',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
+g80 = ClasificacionKarateModel(Descripcion= 'S87',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=8,DisciplinaModel=2)
+g81 = ClasificacionKarateModel(Descripcion= 'K41',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=8,DisciplinaModel=1)  
+g82 = ClasificacionKarateModel(Descripcion= 'S88',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=8,DisciplinaModel=2)
 
 
 ##Edad 40'90 hombres
-g87 = ClasificacionKarateModel(Descripcion= 'K44',NivelModel=2,GeneroModel=1,EdadModel=9,DisciplinaModel=1)  
-g88 = ClasificacionKarateModel(Descripcion= 'S91',NivelModel=2,GeneroModel=1,EdadModel=9,DisciplinaModel=2)
-g89 = ClasificacionKarateModel(Descripcion= 'K45',NivelModel=3,GeneroModel=1,EdadModel=9,DisciplinaModel=1)  
-g90 = ClasificacionKarateModel(Descripcion= 'S92',NivelModel=3,GeneroModel=1,EdadModel=9,DisciplinaModel=2)
+g87 = ClasificacionKarateModel(Descripcion= 'K44',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=9,DisciplinaModel=1)  
+g88 = ClasificacionKarateModel(Descripcion= 'S91',nivelModel=NivelModel.objects.get(pk=2),generoModel=GeneroModel.objects.get(pk=1),EdadModel=9,DisciplinaModel=2)
+g89 = ClasificacionKarateModel(Descripcion= 'K45',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=9,DisciplinaModel=1)  
+g90 = ClasificacionKarateModel(Descripcion= 'S92',nivelModel=NivelModel.objects.get(pk=3),generoModel=GeneroModel.objects.get(pk=1),EdadModel=9,DisciplinaModel=2)
 
 ##Edad 40'90 mujeres 
-g91 = ClasificacionKarateModel(Descripcion= 'K46',NivelModel=2,GeneroModel=2,EdadModel=9,DisciplinaModel=1)  
-g92 = ClasificacionKarateModel(Descripcion= 'S93',NivelModel=2,GeneroModel=2,EdadModel=9,DisciplinaModel=2)
-g93 = ClasificacionKarateModel(Descripcion= 'K47',NivelModel=3,GeneroModel=2,EdadModel=9,DisciplinaModel=1)  
-g94 = ClasificacionKarateModel(Descripcion= 'S94',NivelModel=3,GeneroModel=2,EdadModel=9,DisciplinaModel=2)
+g91 = ClasificacionKarateModel(Descripcion= 'K46',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=9,DisciplinaModel=1)  
+g92 = ClasificacionKarateModel(Descripcion= 'S93',nivelModel=NivelModel.objects.get(pk=2),GeneroModel=2,EdadModel=9,DisciplinaModel=2)
+g93 = ClasificacionKarateModel(Descripcion= 'K47',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=9,DisciplinaModel=1)  
+g94 = ClasificacionKarateModel(Descripcion= 'S94',nivelModel=NivelModel.objects.get(pk=3),GeneroModel=2,EdadModel=9,DisciplinaModel=2)
 
 
 g.save()

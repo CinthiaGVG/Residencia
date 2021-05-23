@@ -27,9 +27,8 @@
         
         },
         "python.languageServer": "Pylance",
-        "editor.columnSelection": true,
+        "editor.columnSelection": false,
         "editor.renderControlCharacters": true,
-    "python.pythonPath": "C:\\Python\\python.exe",
     "terminal.explorerKind": "external",
     "editor.codeActionsOnSave": null
 }

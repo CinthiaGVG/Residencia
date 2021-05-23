@@ -1,8 +1,10 @@
 {% extends 'Core/base.html' %}
 
 {% block content %}
-
 <div class="card">
+  <div class="card-header text-center">
+    <h2>{{object_list.NombreDojo}}</h2>
+  </div>
   <div class="card-body">
     <!-- Create book button -->
     <button id="create-participante" class="btn btn-primary" type="buttton">Registrar Participante</button>
@@ -12,32 +14,32 @@
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Número</th>
-            <th>Dojo</th>
-            <th>Genero</th>
+            <th>Número de Participante</th>
+            <th>FechaNacimiento</th>
             <th>Edad</th>
-            <!-- <th>Nivel de Kata</th>
+            <th>Genero</th>
+            <th>Nivel de Kata</th>
             <th>Nivel de Kumite</th>
             <th>Clasificacion de Kata</th>
-            <th>Clasificacion de Kumite</th> -->
+            <th>Clasificacion de Kumite</th>
             <th>Actualizar</th>
           </tr>
         </thead>
         <tbody>
-          {% for form_n in object_list %}
+          {% for form_n in QueryParticipante %}
           <tr>
             <td>{{form_n.Nombre}}</td>
             <td>{{form_n.NumParticipante}}</td>
-            <td>{{form_n.dojoModel}}</td>
+            <td>{{form_n.FechaNacimiento}}</td>
+            <td>{{form_n.Edad}}</td>
             <td>{{form_n.generoModel}}</td>
-            <td>{{form_n.Edad}}</td>            
-           <!--  <td>{{form_n.nivelKata}}</td>
+            <td>{{form_n.nivelKata}}</td>
             <td>{{form_n.nivelKumite}}</td>
             <td>{{form_n.clasificacionkata}}</td>
-            <td>{{form_n.clasificacionkumite}}</td> -->
+            <td>{{form_n.clasificacionkumite}}</td>
             <td>
-              <button type="button" style="padding: 0rem 0.2rem" class="update-participante bs-modal btn btn-primary"
-                data-form-url="{% url 'participante:update' form_n.pk %}">
+              <button type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary"
+                data-form-url="{% url 'dojo:update' form_n.pk %}">
                 <span class="fa fa-pencil"></span>
               </button>
               <a type="button" style="padding: 0rem 0.2rem" class=" btn btn-info"
@@ -59,19 +61,22 @@
 
 <script type="text/javascript">
 
-  $(document).ready(function() {
-    $('#table_id').DataTable({"columnDefs": [
-        {"className": "dt-center", "targets": "_all"}
-      ]});
+  $(document).ready(function () {
+    $('#table_id').DataTable({
+      "columnDefs": [
+        { "className": "dt-center", "targets": "_all" }
+      ]
     });
+  });
 
-$(document).ready(function() {
+  $(document).ready(function () {
     $("#create-participante").modalForm({
-        formURL: "{% url 'participante:create' %}"
+      formURL: "{% url 'participante:create2' object_list.pk %}"
     });
-      $(".update-participante").each(function () {
-        $(this).modalForm({formURL: $(this).data("form-url")});
+    $(".update-participante").each(function () {
+      $(this).modalForm({ formURL: $(this).data("form-url") });
     });
-});
+  });
+
 </script>
 {% endblock %}

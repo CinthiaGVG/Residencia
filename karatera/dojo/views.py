@@ -25,7 +25,7 @@ class Dojo_Update(BSModalUpdateView):
 
 class DojoInf_List(ListView):
     template_name = "dojo/dojomodel_inf.html"
-    model = DojoModel    
+    model = DojoModel
     def get_queryset(self):
         # original qs
         qs = super().get_queryset() 
