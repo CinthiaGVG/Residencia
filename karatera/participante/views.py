@@ -52,11 +52,9 @@ class Participante_Dojo_List(ListView):
         context['QueryParticipante'] = ParticipanteModel.objects.filter(dojoModel=self.kwargs['pk'])
         return context
 
-class Participante_Create_Dojo(BSModalFormView):
+class Participante_Create_Dojo(BSModalCreateView):
     template_name = 'participante/participante_dojo_form.html'
-    form_class = ParticipanteModelForm
-    success_message = 'Success: Sign up succeeded. You can now Log in.'
-    success_url = reverse_lazy('participante:list')
+    form_class = ParticipanteModelForm    
     def get_initial(self):
         initial = super(Participante_Create_Dojo, self).get_initial()
         initial['dojoModel'] = self.kwargs['pk']
@@ -65,14 +63,27 @@ class Participante_Create_Dojo(BSModalFormView):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         data = form.data.copy()
-        data['nivelKata'] = 1
-        data['nivelKumite'] = 1
-        data['clasificacionKata'] = 1
-        data['clasificacionKumite'] = 1
-        form.data = data  
-        print(self.get_success_url.__dict__)      
-     
-        return self.form_valid(form)
+        data['nivelKata'] = 2
+        data['nivelKumite'] = 2
+        data['clasificacionKata'] = 2
+        data['clasificacionKumite'] = 2
+        form.data=data        
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(self, form)
+    def get_success_url(self, *args, **kwargs):    
+        return reverse_lazy('participante:dojolist', kwargs={'pk':self.kwargs['pk']})
+    def form_invalid(self, form):
+       """If the form is invalid, render the invalid form."""
+       return self.render_to_response(self.get_context_data(form=form))
+
+    def get_context_data(self, **kwargs):
+        """Insert the form into the context dict."""
+        if 'form' not in kwargs:
+            kwargs['form'] = self.get_form()
+        return super().get_context_data(**kwargs)
+ 
         
    
 # [F] Participante-Dojo
