@@ -60,12 +60,12 @@
           //alert(response.responseJSON.errors);
           if (response.status == 500) {
             alert("error");
-          }
-
+          }else{
           $('#participantedojo_form_modal').html(response.responseText);
 
           console.log(response)
           console.log(response.responseText)
+          }
         }
       });
       return false;

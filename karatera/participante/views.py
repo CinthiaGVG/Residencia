@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse, reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView, BSModalUpdateView, BSModalFormView
 from .forms import ParticipanteModelForm
-from administrador.models import GeneroModel
+from administrador.models import ClasificacionKarateModel, DisciplinaModel, EdadModel, GeneroModel
 from django.http import JsonResponse
 from django.views.generic.edit import FormView
 # Dojo
@@ -65,6 +65,11 @@ class Participante_Create_Dojo(FormView):
         form_class = self.get_form_class()
         form = self.get_form(form_class)      
         data = form.data.copy()
+        # Disciplina 1 Kata, 2 Kumite
+        Edad = data['Edad']
+        Genero = data['generoModel']
+        m = ClasificacionKarateModel.objects.filter(edadModel__Minimo=Edad)
+        print(m)
         data['nivelKata'] = 2
         data['nivelKumite'] = 2
         data['clasificacionKata'] = 2

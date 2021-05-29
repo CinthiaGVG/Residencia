@@ -1,5 +1,5 @@
-python manage.py shell
-exit()
+# python manage.py shell
+# exit()
 # Disciplina 1 Kata, 2 Kumite
 from administrador.models import GeneroModel
 G1 = GeneroModel(Descripcion='Masculino')

@@ -43,7 +43,9 @@ class EdadModel(models.Model):
     class Meta():
         verbose_name = "Edad"
         verbose_name_plural = "Edades"
-        ordering = ["-create"]    
+        ordering = ["-Minimo"]    
+    def __str__(self):
+        return f'({self.Minimo},{self.Maximo})'
 
 class DisciplinaModel(models.Model):
     Descripcion =  models.CharField(max_length=50, verbose_name="Nombre")
