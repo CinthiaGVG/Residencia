@@ -1,7 +1,7 @@
 from .models import ParticipanteModel
-from bootstrap_modal_forms.forms import BSModalModelForm
+from django.forms import ModelForm
 
-class ParticipanteModelForm(BSModalModelForm):
+class ParticipanteModelForm(ModelForm):
     class Meta:
         model = ParticipanteModel
         fields = [ 'Nombre','NumParticipante','FechaNacimiento','Edad','generoModel','Peso','dojoModel','clasificacionKata','clasificacionKumite','nivelKata','nivelKumite']

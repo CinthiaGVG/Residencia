@@ -4,18 +4,18 @@ from administrador.models import NivelModel,ClasificacionKarateModel,ModalidadMo
 # Create your models here.
 class ParticipanteModel(models.Model):    
     Nombre = models.CharField(max_length=50, verbose_name="Nombre")
-    NumParticipante = models.IntegerField(verbose_name="NumParticipante")
+    NumParticipante = models.IntegerField(verbose_name="Número participante")
     FechaNacimiento= models.DateField(verbose_name="Fecha Nacimiento")
     Edad = models.IntegerField(verbose_name="Edad")
     generoModel = models.ForeignKey(GeneroModel,verbose_name="Genero", on_delete=models.RESTRICT)
     Peso = models.IntegerField(verbose_name="Peso")
     dojoModel=models.ForeignKey("dojo.DojoModel", verbose_name="Dojo", on_delete=models.RESTRICT)  
     # Nivel Usuario
-    nivelKata = models.ForeignKey(NivelModel, verbose_name="NivelKata", on_delete=models.RESTRICT, related_name="nivelKata")
-    nivelKumite= models.ForeignKey(NivelModel, verbose_name="NivelKumite", on_delete=models.RESTRICT, related_name="nivelKumite")
+    nivelKata = models.ForeignKey(NivelModel, verbose_name="Nivel de Kata", on_delete=models.RESTRICT, related_name="nivelKata")
+    nivelKumite= models.ForeignKey(NivelModel, verbose_name="Nivel de Kumite", on_delete=models.RESTRICT, related_name="nivelKumite")
     # Clasificacion Sistema
-    clasificacionKata = models.ForeignKey(ClasificacionKarateModel,verbose_name="NivelKata", on_delete=models.RESTRICT, related_name="clasificacionKata")    
-    clasificacionKumite= models.ForeignKey(ClasificacionKarateModel,verbose_name="NivelKumite", on_delete=models.RESTRICT,related_name="clasificacionKumite") 
+    clasificacionKata = models.ForeignKey(ClasificacionKarateModel,verbose_name="Clasificación Kata", on_delete=models.RESTRICT, related_name="clasificacionKata")    
+    clasificacionKumite= models.ForeignKey(ClasificacionKarateModel,verbose_name="Clasificacón Kumite", on_delete=models.RESTRICT,related_name="clasificacionKumite") 
     # Modalidad
   # modalidadKata = models.ForeignKey(ModalidadModel,verbose_name="NivelKata", on_delete=models.RESTRICT)    
   # modalidadKumite= models.ForeignKey(ModalidadModel,verbose_name="NivelKumite", on_delete=models.RESTRICT) 
