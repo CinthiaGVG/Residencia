@@ -19,8 +19,16 @@ from dojo.urls import dojo_patterns
 from participante.urls import participante_patterns
 
 
+
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dojo/', include(dojo_patterns)),
     path('participante/', include(participante_patterns)),
+   
+    
+   
 ]
+    

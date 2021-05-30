@@ -12,6 +12,8 @@
             <th>Nombre</th>
             <th>Sensei</th>
             <th>Tel.</th>
+            <th>Actualizar</th>  
+            <th>Agregar participante</th>  
             <th></th>
           </tr>
         </thead>
@@ -25,6 +27,8 @@
               <button type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary"
                 data-form-url="{% url 'dojo:update' form_m.pk %}">
                 <span class="fa fa-pencil"></span>
+              </td>
+              <td>    
               </button>
               <a type="button" style="padding: 0rem 0.2rem" class=" btn btn-info"
                 href="{% url 'participante:dojolist' form_m.pk %}">
