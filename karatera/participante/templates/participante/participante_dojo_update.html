@@ -2,7 +2,7 @@
 <form id="participante_dojo_form" method="post">{% csrf_token %}
 
   <div class="modal-header">
-    <h5 class="modal-title">Nuevo Participante</h5>
+    <h5 class="modal-title">Actualizar Participante</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -16,7 +16,7 @@
       {% render_field form.NumParticipante class="form-control form-control-sm" autocomplete="off" placeholder=form.NumParticipante.label%}
 
       <label for="{{ form.FechaNacimiento.id_for_label }}">{{ form.FechaNacimiento.label }}</label>
-      {% render_field form.FechaNacimiento type="date" class="form-control form-control-sm" placeholder=form.FechaNacimiento.label %}
+      {% render_field form.FechaNacimiento|attr:"type:date"  class="form-control form-control-sm" placeholder=form.FechaNacimiento.label %}
 
       <label for="{{ form.Edad.id_for_label }}">{{ form.Edad.label }}</label>
       {% render_field form.Edad class="form-control form-control-sm" autocomplete="off" placeholder=form.Edad.label %}
@@ -29,7 +29,7 @@
 
       {% render_field form.dojoModel.as_hidden %}
     </div>
-    {{ form.errors }}
+    {{ form.errors }}    
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -39,17 +39,16 @@
 
 {% block javascript %}
 <script>
-
   $(document).ready(function () {
     // catch the form's submit event
     $('#participante_dojo_form').submit(function () {
-      // create an AJAX call
-      var id = "{% render_field form.dojoModel.value  %}"
-      var URL = "{% url 'participante:create2' form.dojoModel.value %}";
+
+        
+      // create an AJAX call    
       $.ajax({
         data: $(this).serialize(), // get the form data
         type: $(this).attr('method'), // GET or POST
-        url: "{% url 'participante:create2' form.dojoModel.value %}",
+        url: "{% url 'participante:update_dojo' 1 %}",
         // on success
         success: function (response) {
           alert("Thankyou for reaching us out " + response.name);

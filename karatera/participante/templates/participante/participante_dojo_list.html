@@ -14,14 +14,14 @@
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Número de Participante</th>
-            <th>FechaNacimiento</th>
+            <th>No. Participante</th>
+            <th>Nacimiento</th>
             <th>Edad</th>
             <th>Genero</th>
-            <th>Nivel de Kata</th>
-            <th>Nivel de Kumite</th>
-            <th>Clasificacion de Kata</th>
-            <th>Clasificacion de Kumite</th>
+            <th>Nivel Kata</th>
+            <th>Nivel Kumite</th>
+            <th>Clasificacion Kata</th>
+            <th>Clasificacion Kumite</th>
             <th>Actualizar</th>
           </tr>
         </thead>
@@ -38,8 +38,8 @@
             <td>{{form_n.clasificacionkata}}</td>
             <td>{{form_n.clasificacionkumite}}</td>
             <td>
-              <button type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary"
-                data-form-url="{% url 'dojo:update' form_n.pk %}">
+              <button name="update-participante" type="button" style="padding: 0rem 0.2rem"
+                class=" bs-modal btn btn-primary" data-form-url="{% url 'participante:update_dojo' form_n.pk %}">
                 <span class="fa fa-pencil"></span>
               </button>
               <a type="button" style="padding: 0rem 0.2rem" class=" btn btn-info"
@@ -53,24 +53,29 @@
     </div>
   </div>
 </div>
-<div id="participantedojo_modal" class="modal fade" tabindex="-1" role="dialog" id="modal">
+<div id="participante_dojo_modal" class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div id="participantedojo_form_modal" ></div>
+      <div id="participante_dojo_form_modal"></div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-
-$("#create-participante").click(function(){
-      $.get("{% url 'participante:create2' object_list.pk %}", function (data) {
-        console.log(data);
-        $('#participantedojo_form_modal').html(data);
-        $('#participantedojo_modal').modal('show');
-      });
+  $("#create-participante").click(function () {
+    $.get("{% url 'participante:create_dojo' object_list.pk %}", function (data) {
+      console.log(data);
+      $('#participante_dojo_form_modal').html(data);
+      $('#participante_dojo_modal').modal('show');
     });
-
+  });
+  $("button[name='update-participante']").click(function () {
+    $.get($(this).data("form-url"), function (data) {
+      console.log(data);
+      $('#participante_dojo_form_modal').html(data);
+      $('#participante_dojo_modal').modal('show');
+    });   
+  });
   $(document).ready(function () {
     $('#table_id').DataTable({
       "columnDefs": [
@@ -78,12 +83,5 @@ $("#create-participante").click(function(){
       ]
     });
   });
-
-  $(document).ready(function () {    
-    $(".update-participante").each(function () {
-      $(this).modalForm({ formURL: $(this).data("form-url") });
-    });
-  });
-
 </script>
 {% endblock %}

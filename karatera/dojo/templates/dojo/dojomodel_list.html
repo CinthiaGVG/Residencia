@@ -22,7 +22,7 @@
             <td>{{form_m.NombreSensei}}</td>
             <td>{{form_m.Tel}}</td>
             <td>
-              <button type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary"
+              <button name="update-dojo" type="button" style="padding: 0rem 0.2rem" class="update-dojo bs-modal btn btn-primary"
                 data-form-url="{% url 'dojo:update' form_m.pk %}">
                 <span class="fa fa-pencil"></span>
               </button>
@@ -45,6 +45,10 @@
 </div>
 
 <script type="text/javascript">
+  
+  $("button[name='update-dojo']").each(function () {
+    $(this).modalForm({ formURL: $(this).data("form-url") });
+    });
 
   $(document).ready(function () {
     $('#table_id').DataTable({
@@ -56,9 +60,10 @@
     $("#create-dojo").modalForm({
       formURL: "{% url 'dojo:create' %}"
     });
-    $(".update-dojo").each(function () {
-      $(this).modalForm({ formURL: $(this).data("form-url") });
-    });
+    
+    // $("button[name='update-dojo']").each(function () {
+    //   $(this).modalForm({ formURL: $(this).data("form-url") });
+    // });
   });
 </script>
 {% endblock %}

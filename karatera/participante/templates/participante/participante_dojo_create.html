@@ -1,0 +1,73 @@
+{% load widget_tweaks %}
+<form id="participante_dojo_form" method="post">{% csrf_token %}
+
+  <div class="modal-header">
+    <h5 class="modal-title">Nuevo Participante</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12">
+      <label for="{{ form.Nombre.id_for_label }}">{{ form.Nombre.label }}</label>
+      {% render_field form.Nombre class="form-control form-control-sm" autocomplete="off"  placeholder=form.Nombre.label %}
+
+      <label for="{{ form.NumParticipante.id_for_label }}">{{ form.NumParticipante.label }}</label>
+      {% render_field form.NumParticipante class="form-control form-control-sm" autocomplete="off" placeholder=form.NumParticipante.label%}
+
+      <label for="{{ form.FechaNacimiento.id_for_label }}">{{ form.FechaNacimiento.label }}</label>
+      {% render_field form.FechaNacimiento|attr:"type:date" class="form-control form-control-sm" placeholder=form.FechaNacimiento.label %}
+
+      <label for="{{ form.Edad.id_for_label }}">{{ form.Edad.label }}</label>
+      {% render_field form.Edad class="form-control form-control-sm" autocomplete="off" placeholder=form.Edad.label %}
+
+      <label for="{{ form.generoModel.id_for_label }}">{{ form.generoModel.label }}</label>
+      {% render_field form.generoModel class="form-control form-control-sm" autocomplete="off" placeholder=form.generoModel.label %}
+
+      <label for="{{ form.Peso.id_for_label }}">{{ form.Peso.label }}</label>
+      {% render_field form.Peso class="form-control form-control-sm" autocomplete="off" placeholder=form.Peso.label %}
+
+      {% render_field form.dojoModel.as_hidden %}
+    </div>
+    {{ form.errors }}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>
+
+{% block javascript %}
+<script>
+
+  $(document).ready(function () {
+    // catch the form's submit event
+    $('#participante_dojo_form').submit(function () {
+      // create an AJAX call    
+      $.ajax({
+        data: $(this).serialize(), // get the form data
+        type: $(this).attr('method'), // GET or POST
+        url: "{% url 'participante:create_dojo' form.dojoModel.value %}",
+        // on success
+        success: function (response) {
+          alert("Thankyou for reaching us out " + response.name);
+        },
+        // on error
+        error: function (response) {
+          // alert the error if any error occured
+          //alert(response.responseJSON.errors);
+          if (response.status == 500) {
+            alert("error");
+          }else{
+          $('#participantedojo_form_modal').html(response.responseText);
+
+          console.log(response)
+          console.log(response.responseText)
+          }
+        }
+      });
+      return false;
+    });
+  });
+</script>
+{% endblock javascript %}
