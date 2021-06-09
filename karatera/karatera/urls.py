@@ -17,10 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from dojo.urls import dojo_patterns
 from participante.urls import participante_patterns
+from core.urls import core_patterns
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dojo/', include(dojo_patterns)),
     path('participante/', include(participante_patterns)),
+    path('core/', include(core_patterns)),
+
+   
 ]
+    
